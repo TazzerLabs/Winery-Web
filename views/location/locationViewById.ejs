@@ -1,0 +1,15 @@
+<%- include("../includes/header.ejs", {title:"location - " + result[0].street + ' ' + result[0].zip_code }); %>
+    <h1>Location</h1>
+    <ul>
+        <li>Street: <%= result[0].street %></li>
+        <br />
+        <li>Zip Code: <%= result[0].zip_code %></li>
+    </ul>
+
+<button type="button"><a href="/location/all">  <u>Back</u></a></button>
+
+<br />
+<br />
+<br />
+
+<%- include("../includes/footer.ejs"); %>

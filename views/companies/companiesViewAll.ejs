@@ -1,0 +1,31 @@
+<%- include("../includes/header.ejs", {title:"Companies - View All"}); %>
+
+<h1>Companies</h1>
+        <a href="/companies/add">Add New Companies</a> <br />
+
+        <br />
+
+        <table border="1">
+            <tr><th>Name</th><th>Actions</th></tr>
+            <% for(var i=0; result.length > i; i++ ) { %>
+            <tr>
+                <td><a href="/companies/?companies_id=<%= result[i].companies_id %>"><%= result[i].companies_name %></a></td>
+                <td>
+                    <button onclick="event.preventDefault();window.location.href='/companies/edit/?companies_id=<%= result[i].companies_id %>'">Edit</button>
+                    <form action="/companies/delete/" style="display:inline;">
+                        <input type="hidden" name="companies_id" id="companies_id" value="<%= result[i].companies_id %>" />
+                        <input type="submit" value="Delete"/>
+                    </form>
+
+                </td>
+            </tr>
+            <% } %>
+        </table>
+<br />
+<button type="button"><a href="/">  <u>Back</u>   </a></button>
+
+<br />
+<br />
+<br />
+
+<%- include("../includes/footer.ejs"); %>

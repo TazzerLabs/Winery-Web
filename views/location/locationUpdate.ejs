@@ -1,0 +1,28 @@
+<%- include("../includes/header.ejs", {title: "Update " + location.street + ' ' + location.zip_code}); %>
+
+
+<h1>Update <%= location.street%> <%= location.zip_code%></h1>
+<form action="/location/update" method="get">
+    <input type="hidden" id="location_id" name="location_id" value="<%= location.location_id %>">
+    Street: <input id="street" name="street" type="text" value="<%= location.street%>"/>
+    <br />
+    <br />
+    Zip Code: <input id="zip_code" name="zip_code" type="text" value="<%= location.zip_code%>"/>
+    <br />
+    <br />
+
+    <input type="submit" />
+
+</form>
+
+
+<br />
+<button type="button"><a href="/location/all">  <u>Back</u></a></button>
+
+<br />
+<br />
+<br />
+
+<%- include("../includes/footer.ejs"); %>
+
+</html>

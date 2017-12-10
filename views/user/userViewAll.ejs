@@ -1,0 +1,34 @@
+<%- include("../includes/header.ejs", {title:"User Selected Wine - View "}); %>
+
+<h1>Wine Selected:</h1>
+
+<br />
+
+<table border="1">
+    <tr><th>Wine's Name</th><th> Amount Made </th><th> Total Wine Left </th><th>Winery's Name</th>
+        <th>Symbol</th><th>Specialty Wine</th><th>Specialty Description</th><th>Winery's Location</th></tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td> <%= result[i].wines_name %></td>
+        <td> <%= result[i].amount_made %></td>
+        <td> <%= result[i].TotalWine %></td>
+        <td> <%= result[i].name %></td>
+        <td> <%= result[i].symbol %></td>
+        <td> <%= result[i].specialty_name %></td>
+        <td> <%= result[i].description %></td>
+        <td> <%= result[i].Wlocation %></td>
+
+    </tr>
+    <% } %>
+</table>
+
+<br />
+<br />
+
+<button type="button"><a href="/user/selectwine">  <u>Back</u></a></button>
+
+<br />
+<br />
+<br />
+
+<%- include("../includes/footer.ejs"); %>

@@ -1,0 +1,21 @@
+<%- include("../includes/header.ejs", {title:"Add New Location"}); %>
+    <h1>Add New Locations</h1>
+    <form action="/location/insert" method="get">
+        Street: <input id="street" name="street" type="text" />
+        <br />
+        <br />
+        Zip Code: <input id="zip_code" name="zip_code" type="text" />
+        <br />
+        <br />
+        <input type="submit" />
+
+    </form>
+
+<br />
+<button type="button"><a href="/location/all">  <u>Back</u></a></button>
+
+<br />
+<br />
+<br />
+
+<%- include("../includes/footer.ejs"); %>

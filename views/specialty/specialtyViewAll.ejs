@@ -1,0 +1,33 @@
+<%- include("../includes/header.ejs", {title:"Specialty - View All"}); %>
+
+<h1>Specialty</h1>
+        <a href="/specialty/add">Add New Specialty</a> <br />
+
+        <br />
+
+        <table border="1">
+            <tr><th>Name</th><th>Description</th><th>Actions</th></tr>
+            <% for(var i=0; result.length > i; i++ ) { %>
+            <tr>
+                <td><a href="/specialty/?specialty_id=<%= result[i].specialty_id %>"><%= result[i].specialty_name %> </a></td>
+                <td><%= result[i].description%></td>
+                <td>
+                    <button onclick="event.preventDefault();window.location.href='/specialty/edit/?specialty_id=<%= result[i].specialty_id %>'">Edit</button>
+                    <form action="/specialty/delete/" style="display:inline;">
+                        <input type="hidden" name="specialty_id" id="specialty_id" value="<%= result[i].specialty_id %>" />
+                        <input type="submit" value="Delete"/>
+                    </form>
+
+                </td>
+            </tr>
+            <% } %>
+        </table>
+
+<br />
+<button type="button"><a href="/">  <u>Back</u></a></button>
+
+<br />
+<br />
+<br />
+
+<%- include("../includes/footer.ejs"); %>

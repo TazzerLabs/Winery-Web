@@ -1,0 +1,22 @@
+<%- include("../includes/header.ejs", {title:"Add New specialty"}); %>
+    <h1>Add New specialty</h1>
+    <form action="/specialty/insert" method="get">
+        specialty Name: <input id="specialty_name" name="specialty_name" type="text" />
+        <br />
+        <br />
+        Description: <input id="description" name="description" type="text" />
+        <br />
+        <br />
+
+        <input type="submit" />
+
+    </form>
+
+<br />
+<button type="button"><a href="/specialty/all">  <u>Back</u></a></button>
+
+<br />
+<br />
+<br />
+
+<%- include("../includes/footer.ejs"); %>

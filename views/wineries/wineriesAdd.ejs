@@ -1,0 +1,61 @@
+<%- include("../includes/header.ejs", {title:"Add New wineries"}); %>
+<h1>Add New wineries</h1>
+<form action="/wineries/insert" method="get">
+    Wineries Name: <input id="name" name="name" type="text" />
+    <br />
+    <br />
+    Symbol: <input id="symbol" name="symbol" type="text" />
+    <br />
+    <br />
+    Companies:
+    <br />
+    <select id="companies_id" name="companies_id" multiple="multiple">
+        <% for(var i=0; companies.length > i; i++) { %>
+        <option value="<%= companies[i].companies_id %>"><%= companies[i].companies_name %></option>
+        <% } %>
+    </select>
+    <br />
+    <br />
+    Location(s):
+    <br />
+    <select id="location_id" name="location_id" multiple="multiple">
+        <% for(var i=0; location.length > i; i++ ) { %>
+        <option value="<%= location[i].location_id %>"><%= location[i].street + ', ' + location[i].zip_code %></option>
+        <% } %>
+    </select>
+    <br />
+    <br />
+    Specialty:
+    <br />
+    <select id="specialty_id" name="specialty_id" multiple="multiple">
+        <% for(var i=0; specialty.length > i; i++) { %>
+        <option value="<%= specialty[i].specialty_id %>"><%= specialty[i].specialty_name %></option>
+        <% } %>
+    </select>
+    <br />
+    <br />
+
+
+    <!-- Initialize the multiselect plugin: -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('select').multiselect();
+        });
+    </script>
+    <br />
+    <input type="submit" />
+
+
+
+
+</form>
+
+<br />
+
+<button type="button"><a href="/wineries/all">  <u>Back</u>   </a></button>
+
+<br />
+<br />
+<br />
+
+<%- include("../includes/footer.ejs"); %>

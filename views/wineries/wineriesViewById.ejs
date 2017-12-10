@@ -1,0 +1,32 @@
+<%- include("../includes/header.ejs", {title:"Wineries - " + wineries.name}); %>
+<h1>Winery</h1>
+<ul>
+    <li>Winery Name: <%= wineries.name %></li>
+    <li>Symbol: <%= wineries.symbol %></li>
+    <li>Companies: </li>
+    <ol>
+        <% for (var i = 0; i < companies.length; i++) { %>
+        <li><%= companies[i].companies_name %></li>
+        <% } %>
+    </ol>
+    <li>Location: </li>
+    <ol>
+        <% for (var i = 0; i < location.length; i++) { %>
+        <li><%= location[i].street + ', ' + location[i].zip_code %></li>
+        <% } %>
+    </ol>
+    <li>Specialty:</li>
+    <ol>
+        <% for (var i = 0; i < specialty.length; i++) { %>
+        <li><%= specialty[i].specialty_name %></li>
+        <% } %>
+    </ol>
+</ul>
+
+<button type="button"><a href="/wineries/all">  <u>Back</u>   </a></button>
+
+<br />
+<br />
+<br />
+
+<%- include("../includes/footer.ejs"); %>

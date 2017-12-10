@@ -1,0 +1,32 @@
+<%- include("../includes/header.ejs", {title:"Wineries - View All"}); %>
+
+<h1>Wineries</h1>
+<a href="/wineries/add">Add New Wineries</a> <br />
+
+<br />
+
+<table border="1">
+    <tr><th>Name</th><th>Symbol</th><th>Actions</th></tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td><a href="/wineries/?wineries_id=<%= result[i].wineries_id %>"><%= result[i].name %></a></td>
+        <td><%= result[i].symbol %></td>
+        <td>
+            <button onclick="event.preventDefault();window.location.href='/wineries/edit/?wineries_id=<%= result[i].wineries_id %>'">Edit</button>
+            <form action="/wineries/delete/" style="display:inline;">
+                <input type="hidden" name="wineries_id" id="wineries_id" value="<%= result[i].wineries_id %>" />
+                <input type="submit" value="Delete"/>
+            </form>
+        </td>
+    </tr>
+    <% } %>
+</table>
+
+<br />
+<button type="button"><a href="/">  <u>Back</u>   </a></button>
+
+<br />
+<br />
+<br />
+
+<%- include("../includes/footer.ejs"); %>

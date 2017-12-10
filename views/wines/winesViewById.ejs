@@ -1,0 +1,26 @@
+<%- include("../includes/header.ejs", {title:"wines - " + result[0].wines_name}); %>
+<h1>Wines</h1>
+<ul>
+    <li>Wine's Name: <%= result[0].wines_name %></li>
+    <li>Wine's Age: <%= result[0].wines_age %></li>
+    <li>Vine's Age: <%= result[0].vine_age %></li>
+    <li>Grape Blend: <%= result[0].grape_blend %></li>
+    <li>Color of Wine: <%= result[0].color_of_wine %></li>
+    <li>Amount Made: <%= result[0].amount_made %></li>
+    <li>Amount Sold: <%= result[0].amount_sold %></li>
+    <li>Amount Left: <%= (result[0].amount_made - result[0].amount_sold) %></li>
+    <li>Winery(ies):
+        <ul>
+            <% for(var i=0; result.length > i; i++ ) { %>
+            <li><%= result[i].name %></li>
+            <% } %>
+        </ul>
+    </li>
+</ul>
+<br />
+<button type="button"><a href="/wines/all">  <u>Back</u>   </a></button>
+<br />
+<br />
+<br />
+
+<%- include("../includes/footer.ejs"); %>

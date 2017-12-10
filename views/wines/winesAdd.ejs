@@ -1,0 +1,53 @@
+<%- include("../includes/header.ejs", {title:"Add New wines"}); %>
+<h1>Add New Wines</h1>
+<form action="/wines/insert" method="get">
+    Wines Name: <input id="wines_name" name="wines_name" type="text" />
+    <br />
+    <br />
+    Wine's Age: <input id="wines_age" name="wines_age" type="text" />
+    <br />
+    <br />
+    Vine Age: <input id="vine_age" name="vine_age" type="text" />
+    <br />
+    <br />
+    Grape Blend: <input id="grape_blend" name="grape_blend" type="text" />
+    <br />
+    <br />
+    Color of Wine: <input id="color_of_wine" name="color_of_wine" type="text" />
+    <br />
+    <br />
+    Amount Made: <input id="amount_made" name="amount_made" type="text" />
+    <br />
+    <br />
+    Amount Sold: <input id="amount_sold" name="amount_sold" type="text" />
+    <br />
+    <br />
+    Wineries
+    <br />
+    <select id="wineries_id" name="wineries_id" multiple="multiple">
+        <% for(var i=0; wineries.length > i; i++ ) { %>
+        <option value="<%= wineries[i].wineries_id %>"><%= wineries[i].name %></option>
+        <% } %>
+    </select>
+
+    <!-- Initialize the multiselect plugin: -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#wineries_id').multiselect();
+        });
+    </script>
+
+
+    <br />
+    <br />
+    <input type="submit" />
+
+</form>
+<br />
+
+<button type="button"><a href="/wines/all">  <u>Back</u>   </a></button>
+<br />
+<br />
+<br />
+
+<%- include("../includes/footer.ejs"); %>

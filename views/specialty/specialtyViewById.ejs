@@ -1,0 +1,17 @@
+<%- include("../includes/header.ejs", {title:"specialty - " + result[0].specialty_name }); %>
+    <h1>specialty</h1>
+    <ul>
+        <li>specialty Name: <%= result[0].specialty_name %></li>
+        <br />
+        <li>Description: <%= result[0].description %></li>
+
+    </ul>
+
+<br />
+
+<button type="button"><a href="/specialty/all">  <u>Back</u></a></button>
+<br />
+<br />
+<br />
+
+<%- include("../includes/footer.ejs"); %>

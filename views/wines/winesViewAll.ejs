@@ -1,0 +1,37 @@
+<%- include("../includes/header.ejs", {title:"Wines - View All"}); %>
+
+<h1>Wines</h1>
+<a href="/wines/add">Add New Wines</a> <br />
+
+<br />
+
+<table border="1">
+    <tr><th>Name</th><th>Wine's Age</th><th>Vine Age</th><th>Grape Blend</th><th>Color of Wine</th><th>Amount Made</th><th>Amount Sold</th><th>Amount Left</th><th>Actions</th></tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td><a href="/wines/?wines_id=<%= result[i].wines_id %>"><%= result[i].wines_name %></a></td>
+        <td><%= result[i].wines_age %></td>
+        <td><%= result[i].vine_age %></td>
+        <td><%= result[i].grape_blend %></td>
+        <td><%= result[i].color_of_wine %></td>
+        <td><%= result[i].amount_made %></td>
+        <td><%= result[i].amount_sold %></td>
+        <td><%= (result[i].amount_made - result[i].amount_sold)%></td>
+        <td>
+            <button onclick="event.preventDefault();window.location.href='/wines/edit/?wines_id=<%= result[i].wines_id %>'">Edit</button>
+            <form action="/wines/delete/" style="display:inline;">
+                <input type="hidden" name="wines_id" id="wines_id" value="<%= result[i].wines_id %>" />
+                <input type="submit" value="Delete"/>
+            </form>
+
+        </td>
+    </tr>
+    <% } %>
+</table>
+<br />
+<button type="button"><a href="/">  <u>Back</u>   </a></button>
+<br />
+<br />
+<br />
+
+<%- include("../includes/footer.ejs"); %>

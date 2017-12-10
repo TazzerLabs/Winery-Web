@@ -1,0 +1,26 @@
+<%- include("../includes/header.ejs", {title:"Select Wine Name"}); %>
+<h1>Select Wine Name: </h1>
+<form action="/user/all" method="get">
+    User
+    <br />
+    <select id="wines_id" name="wines_id" >
+        <% for(var i=0; wines.length > i; i++ ) { %>
+        <option value="<%= wines[i].wines_id %>"><%= wines[i].wines_name  %></option>
+        <% } %>
+    </select>
+    <br />
+    <br />
+    <input type="submit" />
+
+</form>
+
+<br />
+<br />
+
+<button type="button"><a href="/">  <u>Back</u></a></button>
+
+<br />
+<br />
+<br />
+
+<%- include("../includes/footer.ejs"); %>

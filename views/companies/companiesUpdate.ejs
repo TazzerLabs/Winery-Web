@@ -1,0 +1,56 @@
+<%- include("../includes/header.ejs", {title: "Update " + companies.companies_name}); %>
+
+<h1>Update <%= companies.companies_name%>
+
+    <% if(locals.was_successful) { %>
+    <div class="col-md-12">
+        <div id="message" class="alert alert-success col-md-4">
+            <%= companies.companies_name %> was successfully saved. %>
+        </div>
+    </div>
+    <% } %>
+
+</h1>
+<form action="/companies/update" method="get">
+    <input type="hidden" id="companies_id" name="companies_id" value="<%= companies.companies_id %>">
+    Companies Name: <input id="companies_name" name="companies_name" type="text" value="<%= companies.companies_name%>"/>
+    <br />
+    <br />
+    Location <br />
+    <select id="location_id" name="location_id" multiple="multiple">
+        <% for(var i=0; location.length > i; i++ ) {
+            var selected = "";
+
+            if(location[i].companies_id != null) {
+                selected = "selected";
+            }
+        %>
+        <option value="<%= location[i].location_id %>" <%= selected %> ><%= location[i].street + ', ' + location[i].zip_code %></option>
+        <% } %>
+    </select>
+
+    <!-- Initialize the multiselect plugin: -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#location_id').multiselect();
+        });
+    </script>
+
+    <br />
+    <br />
+
+    <input type="submit" />
+
+</form>
+
+<br />
+
+<button type="button"><a href="/companies/all">  <u>Back</u>   </a></button>
+
+<br />
+<br />
+<br />
+
+<%- include("../includes/footer.ejs"); %>
+
+</html>

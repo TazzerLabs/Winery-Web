@@ -1,0 +1,22 @@
+<%- include("../includes/header.ejs", {title:"Companies - " + result[0].companies_name}); %>
+    <h1>Companies</h1>
+    <ul>
+        <li>Companies Name: <%= result[0].companies_name %></li>
+        <li>Location(s):
+            <ul>
+                <% for(var i=0; result.length > i; i++ ) { %>
+                    <li><%= result[i].street + ', ' + result[i].zip_code %></li>
+                <% } %>
+            </ul>
+        </li>
+    </ul>
+
+<br />
+
+<button type="button"><a href="/companies/all">  <u>Back</u>   </a></button>
+
+<br />
+<br />
+<br />
+
+<%- include("../includes/footer.ejs"); %>

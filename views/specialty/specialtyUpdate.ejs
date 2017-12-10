@@ -1,0 +1,26 @@
+<%- include("../includes/header.ejs", {title: "Update " + specialty.specialty_name + ' ' + specialty.description}); %>
+
+<h1>Update <%= specialty.specialty_name%></h1>
+<form action="/specialty/update" method="get">
+    <input type="hidden" id="specialty_id" name="specialty_id" value="<%= specialty.specialty_id %>">
+    specialty Name: <input id="specialty_name" name="specialty_name" type="text" value="<%= specialty.specialty_name%>"/>
+    <br />
+    <br />
+    Description: <input id="description" name="description" type="text" value="<%= specialty.description%>"/>
+    <br />
+    <br />
+
+    <input type="submit" />
+
+</form>
+
+<br />
+<button type="button"><a href="/specialty/all">  <u>Back</u></a></button>
+
+<br />
+<br />
+<br />
+
+<%- include("../includes/footer.ejs"); %>
+
+</html>
